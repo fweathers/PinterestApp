@@ -10,31 +10,32 @@ import UIKit
 import PinterestSDK
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+    }
+    
+    @IBAction func authenticateButtonTapped(_ sender: UIButton) {
+        
         PDKClient.sharedInstance().authenticate(withPermissions: [PDKClientReadPublicPermissions,
                                                                   PDKClientWritePublicPermissions,
                                                                   PDKClientReadRelationshipsPermissions,
                                                                   PDKClientWriteRelationshipsPermissions], from: self, withSuccess: { (result) in
-            //
-            print(result?.user().firstName!)
-                       
+                                                                    //
+                                                                    print(result?.user().firstName!)
+                                                                    
         }) { (error) in
             //
             print("error ---")
             print(error)
         }
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

@@ -12,15 +12,14 @@ import PinterestSDK
 class PAPinDetailViewController: UIViewController {
     @IBOutlet weak var pinImage: UIImageView!
     @IBOutlet weak var pinDetailText: UITextView!
+    var newImage: UIImage!
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        PDKClient.sharedInstance().getPinWithIdentifier("", fields: [], withSuccess: { (response) in
-            //
-        }) { (error) in
-            //
-        }
+//        pinImage.image = newImage
+//        print(pinDetailText)
     }
 
     override func didReceiveMemoryWarning() {

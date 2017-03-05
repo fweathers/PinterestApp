@@ -9,8 +9,9 @@
 import UIKit
 import PinterestSDK
 
-
 class PAPinsTableViewController: UITableViewController {
+    
+    var selectedIndex = -1
     
     var data: NSMutableArray = []
     var passedData: NSDictionary!
@@ -56,10 +57,12 @@ class PAPinsTableViewController: UITableViewController {
         let cellIdentifier = "pinCustomCellID"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PinCustomCell
         
+        // Set text
         if let description = currentData["note"] {
             cell.pinDescriptionText.text = description as! String
         }
         
+        // Set image
         let imageObject = currentData["image"] as! NSDictionary
         let original = imageObject.object(forKey: "original") as! NSDictionary
         
@@ -76,8 +79,27 @@ class PAPinsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var selectedData = data[indexPath.row] as! [String: Any]
         
+        var selectedData = data[indexPath.row] as! [String: Any]
+       
         selectedPinId = selectedData["id"] as! String!
+        
+        self.performSegue(withIdentifier: "DetailCellID", sender: indexPath)
+
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "detailCellID") {
+            if let nextVC = segue.destination as? PAPinDetailViewController {
+                
+                nextVC.pinDetailText.text = "Description sent over"
+            }
+        }
+    }
+    
 }

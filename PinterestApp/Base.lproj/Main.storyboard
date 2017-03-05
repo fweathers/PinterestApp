@@ -23,11 +23,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aqy-ak-Yxy">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
+                                <rect key="frame" x="144" y="318" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="View Boards"/>
                                 <connections>
                                     <segue destination="mPx-TH-Vfc" kind="show" id="PIr-WI-tD7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QW-BX-YpQ">
+                                <rect key="frame" x="143" y="257" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Authenticate"/>
+                                <connections>
+                                    <action selector="authenticateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3qR-Qh-o8E"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -52,11 +60,11 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pAe-yU-s9e" id="0QY-bo-CJK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6J5-GK-bPv">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -92,7 +100,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hKd-hF-ZcB" id="tkt-bM-fsp">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dgD-Ib-lxe">
@@ -122,7 +130,7 @@
                                 <connections>
                                     <outlet property="pinDescriptionText" destination="rcd-Mz-6bx" id="vAF-YN-OmA"/>
                                     <outlet property="pinImageView" destination="dgD-Ib-lxe" id="djC-Mn-nia"/>
-                                    <segue destination="FPk-uR-3mG" kind="show" identifier="PinsDetailID" id="o9e-zq-zVR"/>
+                                    <segue destination="FPk-uR-3mG" kind="show" identifier="DetailCellID" id="B8H-9T-QUf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -139,7 +147,7 @@
         <!--Pin Detail View Controller-->
         <scene sceneID="PdZ-ZF-WaJ">
             <objects>
-                <viewController id="FPk-uR-3mG" customClass="PAPinDetailViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PAPinDetailViewController" id="FPk-uR-3mG" customClass="PAPinDetailViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="85c-Zy-TEn"/>
                         <viewControllerLayoutGuide type="bottom" id="Eex-Mp-mIg"/>
@@ -170,7 +178,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rki-p0-ldJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3248.8000000000002" y="115.59220389805098"/>
+            <point key="canvasLocation" x="3375" y="116"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0h9-CY-961">
