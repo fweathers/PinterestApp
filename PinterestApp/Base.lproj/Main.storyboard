@@ -122,6 +122,7 @@
                                 <connections>
                                     <outlet property="pinDescriptionText" destination="rcd-Mz-6bx" id="vAF-YN-OmA"/>
                                     <outlet property="pinImageView" destination="dgD-Ib-lxe" id="djC-Mn-nia"/>
+                                    <segue destination="FPk-uR-3mG" kind="show" identifier="PinsDetailID" id="o9e-zq-zVR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -134,6 +135,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZl-xT-lqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2568.8000000000002" y="115.59220389805098"/>
+        </scene>
+        <!--Pin Detail View Controller-->
+        <scene sceneID="PdZ-ZF-WaJ">
+            <objects>
+                <viewController id="FPk-uR-3mG" customClass="PAPinDetailViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="85c-Zy-TEn"/>
+                        <viewControllerLayoutGuide type="bottom" id="Eex-Mp-mIg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pnz-i6-ltB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PM2-Av-rYP">
+                                <rect key="frame" x="67" y="112" width="240" height="183"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uxq-qN-Bb3">
+                                <rect key="frame" x="67" y="354" width="240" height="172"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="pinDetailText" destination="uxq-qN-Bb3" id="CfK-Gq-i2z"/>
+                        <outlet property="pinImage" destination="PM2-Av-rYP" id="bTn-fF-dmv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rki-p0-ldJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3248.8000000000002" y="115.59220389805098"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0h9-CY-961">

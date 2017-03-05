@@ -55,6 +55,7 @@ class PABoardsTableViewController: UITableViewController {
         var currentData = data[indexPath.row] as! [String: Any]
         
         
+        
 //        print(currentData)
         
         // Trying to reuse a cell
