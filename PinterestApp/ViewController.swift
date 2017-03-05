@@ -19,7 +19,6 @@ class ViewController: UIViewController {
                                                                   PDKClientReadRelationshipsPermissions,
                                                                   PDKClientWriteRelationshipsPermissions], from: self, withSuccess: { (result) in
             //
-            
             print(result?.user().firstName!)
                        
         }) { (error) in
