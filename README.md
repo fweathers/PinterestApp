@@ -1,5 +1,8 @@
-# PinterestApp
-Mini Pinterest App, utilizing Pinterest SDK
+# Mini Pinterest App
+
+App utilizes Pinterest iOS SDK and bridges Objective-C SDK to Swift.
+
+At the current moment you can log in by authenticating through Pinterest SDK and view your user's boards and pins.
 
 Road Map
 
