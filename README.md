@@ -2,7 +2,7 @@
 
 App utilizes Pinterest iOS SDK and bridges Objective-C SDK to Swift.
 
-At the current moment you can log in by authenticating through Pinterest SDK and view your user's boards and pins.
+At the current moment you can log in by authenticating through Pinterest SDK and view the user's boards, pins and detailed pin view.
 
 Road Map
 
