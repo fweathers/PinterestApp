@@ -13,13 +13,18 @@ class PAPinDetailViewController: UIViewController {
     @IBOutlet weak var pinImage: UIImageView!
     @IBOutlet weak var pinDetailText: UITextView!
     var newImage: UIImage!
-
-
+    var noteText:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        pinImage.image = newImage
-//        print(pinDetailText)
+        pinDetailText.text = noteText
+        print(noteText)
+        
+        pinImage.image = newImage
+        
+        
+        //        print(pinDetailText)
     }
 
     override func didReceiveMemoryWarning() {

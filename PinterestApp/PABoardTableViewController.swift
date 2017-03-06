@@ -14,7 +14,6 @@ class PABoardsTableViewController: UITableViewController {
     var data: NSMutableArray = []
     var selectedIndex = -1
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -67,9 +66,7 @@ class PABoardsTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-     // Pass the selected object to the new view controller.
-
-        var selectedData = data[selectedIndex]
+        let selectedData = data[selectedIndex]
         print(data.count)
         print(selectedIndex)
         
