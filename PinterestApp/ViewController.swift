@@ -11,6 +11,8 @@ import PinterestSDK
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var authenticateLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,19 +20,26 @@ class ViewController: UIViewController {
     
     @IBAction func authenticateButtonTapped(_ sender: UIButton) {
         
-        PDKClient.sharedInstance().authenticate(withPermissions: [PDKClientReadPublicPermissions,
-                                                                  PDKClientWritePublicPermissions,
-                                                                  PDKClientReadRelationshipsPermissions,
-                                                                  PDKClientWriteRelationshipsPermissions], from: self, withSuccess: { (result) in
-                                                                    //
-                                                                    print(result?.user().firstName!)
-                                                                    
+        PDKClient.sharedInstance().authenticate(withPermissions:
+            [PDKClientReadPublicPermissions,
+             PDKClientWritePublicPermissions,
+             PDKClientReadRelationshipsPermissions,
+             PDKClientWriteRelationshipsPermissions], from: self, withSuccess: { (result) in
+                //
+                if ((result?.user().firstName!) != nil) {
+                    let name = result?.user().firstName!
+                    self.authenticateLabel.text = name! + (" is signed in to Pinterest")
+                } else {
+                    
+                    print(result?.user().firstName! ?? "User does not have first name")
+                    
+                }
+                
         }) { (error) in
             //
-            print("error ---")
-            print(error)
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

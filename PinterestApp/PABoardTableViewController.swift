@@ -17,7 +17,9 @@ class PABoardsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PDKClient.sharedInstance().getAuthenticatedUserBoards(withFields: ["id", "image", "description", "name", "privacy"], success: {
+        self.title = "Boards"
+        
+        PDKClient.sharedInstance().getAuthenticatedUserBoards(withFields: ["id", "image", "description", "name"], success: {
             (result) in
             guard let json = result?.parsedJSONDictionary["data"] as? [[String: Any]] else {
                 return
@@ -29,11 +31,6 @@ class PABoardsTableViewController: UITableViewController {
         }
             , andFailure: nil
         )
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
@@ -50,30 +47,27 @@ class PABoardsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
             ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
         cell.textLabel?.text = currentData["name"] as? String
-       
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         
-        // call the segue
         self.performSegue(withIdentifier: "BoardPinsSegue", sender: indexPath)
-
     }
     
-     // MARK: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        
         let selectedData = data[selectedIndex]
-        print(data.count)
-        print(selectedIndex)
         
         if (segue.identifier == "BoardPinsSegue") {
             if let destinationVC = segue.destination as? PAPinsTableViewController {
-               destinationVC.passedData = selectedData as! NSDictionary
+                destinationVC.passedData = selectedData as! NSDictionary
+                destinationVC.title = (selectedData as! NSDictionary)["name"] as? String
             }
         }
-     }   
+    }   
 }

@@ -10,9 +10,7 @@ import UIKit
 import PinterestSDK
 
 class PAPinsTableViewController: UITableViewController {
-    
-    var selectedIndex = -1
-    
+        
     var data: NSMutableArray = []
     var passedData: NSDictionary!
     var selectedPinId: String!
@@ -21,23 +19,23 @@ class PAPinsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         let id = passedData.object(forKey: "id") as! String
-        PDKClient.sharedInstance().getBoardPins(id, fields: ["id", "link", "note", "creator", "image"], withSuccess: { (response) in
+       
+        PDKClient.sharedInstance().getBoardPins(id, fields: ["id", "note", "image"], withSuccess: { (response) in
+           
             guard let json = response?.parsedJSONDictionary["data"] as? [[String: Any]] else {
                 return
             }
+           
             for event in json {
                 self.data.add(event)
             }
+           
             self.tableView.reloadData()
+        
         }) { (error) in
             print(error!)
-            //
+
         }
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Table view data source
@@ -80,31 +78,18 @@ class PAPinsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        var selectedData = data[indexPath.row] as! [String: Any]
-        
-        selectedPinId = selectedData["id"] as! String!
-        
         self.performSegue(withIdentifier: "DetailCellID", sender: indexPath)
     }
     
     // MARK: - Navigation
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = sender as? IndexPath else { return }
-        print("Selected row \(indexPath.row)")
-        
         
         if let nextVC = segue.destination as? PAPinDetailViewController {
             
             var currentData = data[indexPath.row] as! [String: Any]
-            
-            if let description = currentData["note"] {
-                
-                nextVC.noteText = description as? String
-                
-                nextVC.title = "Pin Detail"
-            }
+            nextVC.noteText = currentData["note"] as? String
             
             let imageObject = currentData["image"] as! NSDictionary
             let original = imageObject.object(forKey: "original") as! NSDictionary
@@ -113,11 +98,9 @@ class PAPinsTableViewController: UITableViewController {
                 DispatchQueue.global().async {
                     let data = try? Data(contentsOf: url) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
                     DispatchQueue.main.async {
-                        nextVC.newImage = UIImage(data: data!)
+                        nextVC.pinImage.image = UIImage(data: data!)
                     }
-                    
                 }
-                
             }
         }
     }

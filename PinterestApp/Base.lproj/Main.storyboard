@@ -38,14 +38,24 @@
                                     <action selector="authenticateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3qR-Qh-o8E"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LnC-nr-igN">
+                                <rect key="frame" x="16" y="372" width="343" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="J8d-BV-3bP"/>
+                    <connections>
+                        <outlet property="authenticateLabel" destination="LnC-nr-igN" id="fpS-Jy-Eyb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="116"/>
+            <point key="canvasLocation" x="1076" y="115.59220389805098"/>
         </scene>
         <!--Boards Table View Controller-->
         <scene sceneID="TQz-6U-Hat">
@@ -130,7 +140,6 @@
                                 <connections>
                                     <outlet property="pinDescriptionText" destination="rcd-Mz-6bx" id="vAF-YN-OmA"/>
                                     <outlet property="pinImageView" destination="dgD-Ib-lxe" id="djC-Mn-nia"/>
-                                    <segue destination="FPk-uR-3mG" kind="show" identifier="DetailCellID" id="B8H-9T-QUf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -139,6 +148,9 @@
                             <outlet property="delegate" destination="saE-dw-GTu" id="cYz-Uj-hKh"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="FPk-uR-3mG" kind="show" identifier="DetailCellID" id="IPH-Le-9pK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZl-xT-lqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
