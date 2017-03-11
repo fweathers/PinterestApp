@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Authentication View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AuthenticationViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -60,7 +60,7 @@
         <!--Boards Table View Controller-->
         <scene sceneID="TQz-6U-Hat">
             <objects>
-                <tableViewController id="mPx-TH-Vfc" customClass="PABoardsTableViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="mPx-TH-Vfc" customClass="BoardsTableViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="wJ0-uO-9Q3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,7 @@
         <!--Pins Table View Controller-->
         <scene sceneID="RO6-MY-xax">
             <objects>
-                <tableViewController id="saE-dw-GTu" customClass="PAPinsTableViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="saE-dw-GTu" customClass="PinsTableViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jEM-Cn-QG3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -148,9 +148,6 @@
                             <outlet property="delegate" destination="saE-dw-GTu" id="cYz-Uj-hKh"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="FPk-uR-3mG" kind="show" identifier="DetailCellID" id="IPH-Le-9pK"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eZl-xT-lqm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -159,7 +156,7 @@
         <!--Pin Detail View Controller-->
         <scene sceneID="PdZ-ZF-WaJ">
             <objects>
-                <viewController storyboardIdentifier="PAPinDetailViewController" id="FPk-uR-3mG" customClass="PAPinDetailViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PinDetailViewController" id="FPk-uR-3mG" customClass="PinDetailViewController" customModule="PinterestApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="85c-Zy-TEn"/>
                         <viewControllerLayoutGuide type="bottom" id="Eex-Mp-mIg"/>
@@ -197,7 +194,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2VV-AM-GWG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="kgs-IJ-zbd">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kgs-IJ-zbd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

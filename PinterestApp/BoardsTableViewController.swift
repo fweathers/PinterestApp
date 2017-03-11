@@ -9,44 +9,39 @@
 import UIKit
 import PinterestSDK
 
-class PABoardsTableViewController: UITableViewController {
+class BoardsTableViewController: UITableViewController {
     
-    var data: NSMutableArray = []
-    var selectedIndex = -1
+    fileprivate var boards: [Board] = []
+    fileprivate var selectedIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Boards"
         
-        PDKClient.sharedInstance().getAuthenticatedUserBoards(withFields: ["id", "image", "description", "name"], success: {
-            (result) in
-            guard let json = result?.parsedJSONDictionary["data"] as? [[String: Any]] else {
-                return
+        PinterestClient().getBoards() { result in
+            switch result {
+            case .success(let boards):
+                self.boards = boards
+                self.tableView.reloadData()
+            case .failure(let error): print(error)
             }
-            for event in json {
-                self.data.add(event)
-            }
-            self.tableView.reloadData()
         }
-            , andFailure: nil
-        )
     }
     
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return boards.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var currentData = data[indexPath.row] as! [String: Any]
-        
+        let board = boards[indexPath.row]
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
             ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
-        cell.textLabel?.text = currentData["name"] as? String
+        cell.textLabel?.text = board.name
         
         return cell
     }
@@ -60,13 +55,14 @@ class PABoardsTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let selectedIndex = selectedIndex else { return }
         
-        let selectedData = data[selectedIndex]
+        let board = boards[selectedIndex]
         
         if (segue.identifier == "BoardPinsSegue") {
-            if let destinationVC = segue.destination as? PAPinsTableViewController {
-                destinationVC.passedData = selectedData as! NSDictionary
-                destinationVC.title = (selectedData as! NSDictionary)["name"] as? String
+            if let destinationVC = segue.destination as? PinsTableViewController {
+                destinationVC.boardId = board.id
+                destinationVC.title = board.name
             }
         }
     }   
