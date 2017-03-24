@@ -11,10 +11,13 @@ import PinterestSDK
 
 class AuthenticationViewController: UIViewController {
     
+    @IBOutlet weak var viewBoardsButton: UIButton!
     @IBOutlet weak var authenticateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewBoardsButton.isHidden = true
     }
     
     @IBAction func authenticateButtonTapped(_ sender: UIButton) {
@@ -29,6 +32,7 @@ class AuthenticationViewController: UIViewController {
                 print(error)
             }
         }
+        viewBoardsButton.isHidden = false
     }
     
     override func didReceiveMemoryWarning() {

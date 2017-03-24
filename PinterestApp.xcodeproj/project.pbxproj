@@ -11,6 +11,7 @@
 		B606A5061E746E2A009C9684 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606A5051E746E2A009C9684 /* Board.swift */; };
 		B606A5081E746E35009C9684 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606A5071E746E35009C9684 /* Pin.swift */; };
 		B606A50B1E74727A009C9684 /* PinterestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606A50A1E74727A009C9684 /* PinterestClient.swift */; };
+		B66F09601E856E1D00CF74B4 /* BoardsCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66F095F1E856E1D00CF74B4 /* BoardsCustomCell.swift */; };
 		B68A4FE21E6B3F930016C6FF /* BoardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68A4FE11E6B3F930016C6FF /* BoardsTableViewController.swift */; };
 		B68B6C2C1E6B45860071C8C2 /* PinsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B6C2B1E6B45860071C8C2 /* PinsTableViewController.swift */; };
 		B68B6C2E1E6BB0E70071C8C2 /* PinCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68B6C2D1E6BB0E70071C8C2 /* PinCustomCell.swift */; };
@@ -27,6 +28,7 @@
 		B606A5051E746E2A009C9684 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		B606A5071E746E35009C9684 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		B606A50A1E74727A009C9684 /* PinterestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestClient.swift; sourceTree = "<group>"; };
+		B66F095F1E856E1D00CF74B4 /* BoardsCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardsCustomCell.swift; sourceTree = "<group>"; };
 		B68A4FE11E6B3F930016C6FF /* BoardsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardsTableViewController.swift; sourceTree = "<group>"; };
 		B68B6C2B1E6B45860071C8C2 /* PinsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinsTableViewController.swift; sourceTree = "<group>"; };
 		B68B6C2D1E6BB0E70071C8C2 /* PinCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinCustomCell.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				B6EE71CD1E6604F50053587B /* PinterestApp-Bridging-Header.h */,
 				B6C5A7CC1E660D6B006DD333 /* PinterestApp.entitlements */,
 				B68B6C2D1E6BB0E70071C8C2 /* PinCustomCell.swift */,
+				B66F095F1E856E1D00CF74B4 /* BoardsCustomCell.swift */,
 			);
 			path = PinterestApp;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				B6EE71BE1E6603F50053587B /* AuthenticationViewController.swift in Sources */,
 				B606A5081E746E35009C9684 /* Pin.swift in Sources */,
 				B68B6C2E1E6BB0E70071C8C2 /* PinCustomCell.swift in Sources */,
+				B66F09601E856E1D00CF74B4 /* BoardsCustomCell.swift in Sources */,
 				B606A5061E746E2A009C9684 /* Board.swift in Sources */,
 				B68A4FE21E6B3F930016C6FF /* BoardsTableViewController.swift in Sources */,
 				B6EE71BC1E6603F50053587B /* AppDelegate.swift in Sources */,

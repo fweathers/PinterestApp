@@ -61,7 +61,7 @@ class PinterestClient {
 
             }, andFailure: { error in
                 print(error?.localizedDescription ?? "get failed: boards")
-                completion(.failure(.invalidJson))
+                completion(.failure(.invalidJson)) // fix error msg
             })
     }
     
@@ -71,7 +71,7 @@ class PinterestClient {
         PDKClient.sharedInstance().getBoardPins(id, fields: fields, withSuccess: { response in
             
             guard let json = response?.parsedJSONDictionary["data"] as? [[String: Any]] else {
-                completion(.failure(.invalidJson))
+                completion(.failure(.invalidJson)) // fix error msg
                 return
             }
 
@@ -79,7 +79,7 @@ class PinterestClient {
 
         }, andFailure: { error in
             print(error?.localizedDescription ?? "get failed: pins")
-            completion(.failure(.invalidJson))
+            completion(.failure(.invalidJson)) // fix error msg
         })
     }
 

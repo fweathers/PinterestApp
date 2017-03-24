@@ -35,14 +35,41 @@ class BoardsTableViewController: UITableViewController {
         return boards.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let board = boards[indexPath.row]
-        let cellIdentifier = "Cell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
-            ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
-        cell.textLabel?.text = board.name
+        let cellIdentifier = "BoardCustomCellID"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! BoardsCustomCell
+        //        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
+        //            ?? UITableViewCell(style: .subtitle, reuseIdentifier: cellIdentifier)
+        //        cell.textLabel?.text = board.name
         
+        // Set text
+        cell.boardsLabel.text = board.name
+        
+        // Set image
+        if let image = board.image {
+            cell.boardsImageView.image = image
+        } else {
+            board.getImage() { [weak self] image in
+                guard self != nil else { return }
+                
+                if Thread.isMainThread {
+                    cell.boardsImageView.image = image
+                } else {
+                    DispatchQueue.main.async {
+                        guard let cell = self?.tableView.cellForRow(at: indexPath),
+                            (self?.tableView.visibleCells.contains(cell))! else { return }
+                        self?.tableView.reloadRows(at: [indexPath], with: .automatic)
+                    }
+                }
+
+            }
+        }
         return cell
     }
     

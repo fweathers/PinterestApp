@@ -1,10 +1,12 @@
 import Foundation
+import UIKit
 
-struct Board {
+class Board {
     let name: String
     let id: String
     let imageUrl: URL
     let description: String
+    var image: UIImage? = nil
     
     init?(dictionary: [String: Any]) {
         guard let name = dictionary["name"] as? String,
@@ -20,5 +22,21 @@ struct Board {
         self.id = id
         self.description = description
         self.imageUrl = imageUrl
+    }
+    
+    func getImage(onImageFetched: @escaping (UIImage) -> Void) {
+        if let image = self.image {
+            onImageFetched(image)
+            return
+        } else {
+            DispatchQueue.global(qos: .default).async {
+                if let data = try? Data(contentsOf: self.imageUrl) {
+                    if let image = UIImage(data: data) {
+                        self.image = image
+                        onImageFetched(image)
+                    }
+                }
+            }
+        }
     }
 }
